@@ -14,8 +14,21 @@
     margin-top: 25px;
 }
 
-.form{
-    
+.result{
+    width: 200px;
+    height: 200px;
+    border: 2px solid black;
+    margin: auto;
+    margin-top: 25px;
+}
+.result h3{
+    color: white;
+    font-size: 24pt;
+}
+
+.result button{
+    margin: 5px 65px;
+    box-shadow: 3px 3px;
 }
 
 .form1 input{
