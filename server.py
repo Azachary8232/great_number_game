@@ -1,8 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session
+import random
 app = Flask(__name__)
+app.secret_key = "skittles"
 
 @app.route('/')
-def hello():
+def game_home():
+    session['random_num'] = random.randint(1,100)
     return render_template("index.html")
 
 
