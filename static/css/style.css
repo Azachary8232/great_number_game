@@ -2,3 +2,31 @@
     margin: 0px;
     padding: 0px;
 }
+
+.container{
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+}
+
+.container h1, h3{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.form{
+    
+}
+
+.form1 input{
+    height: 60px;
+    width: 60px;
+    display: block;
+    margin: 25px 250px;
+    text-align: center;
+    font-size: 24pt;
+}
+
+.form1 button{
+    margin: 25px 260px;
+}
