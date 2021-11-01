@@ -9,6 +9,11 @@ def game_home():
         session['random_num'] = random.randint(1,100)
     if 'count' not in session:
         session['count'] = 0
+    if session['count'] == 10:
+        if session['color'] != "green1": 
+            session['color'] = "green2"
+            print(session['color'])
+            return render_template("index.html")
     print(session['random_num'])
     print(session['count'])
     return render_template("index.html")
@@ -18,17 +23,17 @@ def guess():
     if int(request.form['guess']) > session['random_num']:
         session['color'] = "red1"
         session['count'] += 1
-        print(session['count'])
+        print(session['color'])
         return redirect('/')
     elif int(request.form['guess']) < session['random_num']:
         session['color'] = "red2"
         session['count'] += 1
-        print(session['count'])
+        print(session['color'])
         return redirect('/')
     else:
-        session['color'] = "green"
+        session['color'] = "green1"
         session['count'] += 1
-        print(session)
+        print(session['color'])
         return redirect('/')
         
 @app.route('/reset')

@@ -17,11 +17,11 @@
                 <div class="result" style="background-color: red;">
                     <h3>Too High!</h3>
                 </div>
-            {% elif  session['color'] == "red2"%}
+            {% elif  session['color'] == "red2" %}
                 <div class="result" style="background-color: red;">
                     <h3>Too Low!</h3>
                 </div>
-            {% else %}
+            {% elif  session['color'] == "green1" %}
                 <div class="result" style="background-color: green;">
                     <h3>Correct!</h3>
                     <h3>{{session['random_num']}} was the<br>
@@ -33,13 +33,22 @@
                 <div>
                     <h3>It took you {{session['count']}} attemps to get the correct answer!</h3>
                 </div>
+            {% else %}
+            <div class="result" style="background-color: green;">
+                <h3>You Lose</h3>
+                <form action="/reset" name="form2">
+                    <button type="submit">Play again!</button>
+                </form>
+            </div>
             {% endif %}
         {% endif %}  
-        {% if session['color']  !=  "green" %}  
-        <form class="form1" action="/guess" name="form" method="post">
-            <input name="guess" type="text">
-            <button type="submit">Submit</button>
-        </form>
+        {% if session['color']  !=  "green1" %}  
+            {% if session['color'] != "green2" %}
+            <form class="form1" action="/guess" name="form" method="post">
+                <input name="guess" type="text">
+                <button type="submit">Submit</button>
+            </form>
+            {% endif %}
         {% endif %}
     </div>
 
