@@ -7,22 +7,28 @@ app.secret_key = "skittles"
 def game_home():
     if 'random_num' not in session:
         session['random_num'] = random.randint(1,100)
+    if 'count' not in session:
+        session['count'] = 0
     print(session['random_num'])
+    print(session['count'])
     return render_template("index.html")
 
 @app.route('/guess', methods=['POST'])
 def guess():
     if int(request.form['guess']) > session['random_num']:
         session['color'] = "red1"
-        print(session['color'])
+        session['count'] += 1
+        print(session['count'])
         return redirect('/')
     elif int(request.form['guess']) < session['random_num']:
         session['color'] = "red2"
-        print(session['color'])
+        session['count'] += 1
+        print(session['count'])
         return redirect('/')
     else:
         session['color'] = "green"
-        print(session['color'])
+        session['count'] += 1
+        print(session)
         return redirect('/')
         
 @app.route('/reset')

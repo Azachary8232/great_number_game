@@ -30,12 +30,17 @@
                         <button type="submit">Play again!</button>
                     </form>
                 </div>
+                <div>
+                    <h3>It took you {{session['count']}} attemps to get the correct answer!</h3>
+                </div>
             {% endif %}
-        {% endif %}    
+        {% endif %}  
+        {% if session['color']  !=  "green" %}  
         <form class="form1" action="/guess" name="form" method="post">
             <input name="guess" type="text">
             <button type="submit">Submit</button>
         </form>
+        {% endif %}
     </div>
 
 
